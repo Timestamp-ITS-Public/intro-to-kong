@@ -1,3 +1,17 @@
 # a very minimal declarative config file
 _format_version: "2.1"
 _transform: true
+
+services:
+- name: echo-api
+  url: http://postman-echo.com/get
+  routes:
+    - paths:
+      - /echo
+  plugins:
+  - name: key-auth
+
+consumers:
+- username: admin
+  keyauth_credentials:
+  - key: secret
